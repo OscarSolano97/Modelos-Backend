@@ -4,7 +4,8 @@ Responde brevemente:
 
 • ¿Qué componente se encarga de recibir la petición HTTP y dirigirla al controlador?
 
-En un backend con Node.js, Express y router, el componente que recibe la petición HTTP es el servidor de Express, y el router se encarga de dirigirla al controlador correspondiente.
+En Node.js, el componente encargado de recibir la petición HTTP y dirigirla al controlador es el enrutador (o router).
+El Enrutador: Analiza la URL y el método de la petición (GET, POST, etc.) y la delega a la función o controlador específico encargado de procesarla y generar la respuesta.
 
 • ¿Qué componente se encarga de comunicarse con la base de datos?
 
