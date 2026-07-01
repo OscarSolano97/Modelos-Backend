@@ -1,27 +1,26 @@
-import {
-  createPqrsMessage,
-  getAllPqrsMessage,
-  getPqrsByIdMessage,
-  updatePqrsMessage,
-  deletePqrsMessage,
-} from '../models/pqrsModels.js';
+import * as modelo from "../models/pqrsModel.js";
 
-export const getAllPqrs = (req, res) => {
-  res.status(200).json(getAllPqrsMessage());
-};
+export function obtenerTodas(req, res) {
+    const datos = modelo.obtenerTodas();
+    res.status(200).json(datos);
+}
 
-export const getPqrsById = (req, res) => {
-  res.status(200).json(getPqrsByIdMessage(req.params.id));
-};
+export function obtenerPorId(req, res) {
+    const datos = modelo.obtenerPorId(req.params.id);
+    res.status(200).json(datos);
+}
 
-export const createPqrs = (req, res) => {
-  res.status(201).json(createPqrsMessage(req.body));
-};
+export function crear(req, res) {
+    const datos = modelo.crear(req.body);
+    res.status(201).json(datos);
+}
 
-export const updatePqrs = (req, res) => {
-  res.status(200).json(updatePqrsMessage(req.params.id, req.body));
-};
+export function actualizar(req, res) {
+    const datos = modelo.actualizar(req.params.id, req.body);
+    res.status(200).json(datos);
+}
 
-export const deletePqrs = (req, res) => {
-  res.status(200).json(deletePqrsMessage(req.params.id));
-};
+export function eliminar(req, res) {
+    const mensaje = modelo.eliminar(req.params.id);
+    res.status(200).json({ mensaje });
+}

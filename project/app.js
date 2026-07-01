@@ -1,34 +1,29 @@
-import express from 'express';
+import express from "express";
+import cors from "cors";
+import pqrsRoutes from "./routes/pqrsRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('API PQRS simulada funcionando');
+
+app.get("/", (req, res) => {
+    res.status(200).json({
+        mensaje: "¡Bienvenido a la API del Sistema PQRS!",
+        autor: "Oscar Mauricio Solano",
+        version: "1.0",
+        rutas: {
+            obtenerTodas: "/pqrs",
+            obtenerPorId: "/pqrs/1"
+        }
+    });
 });
 
-app.get('/pqrs', (req, res) => {
-  res.send('Simulación: se consultaron todas las PQRS.');
-});
+app.use("/pqrs", pqrsRoutes);
 
-app.get('/pqrs/:id', (req, res) => {
-  res.send(`Simulación: se consultó la PQRS con id ${req.params.id}.`);
-});
+const PORT = 3000;
 
-app.post('/pqrs/crear', (req, res) => {
-  res.send(`Simulación: se creó una nueva PQRS. Datos: ${JSON.stringify(req.body)}`);
-});
-
-app.put('/pqrs/:id/seActualiza', (req, res) => {
-  res.send(`Simulación: se actualizó la PQRS con id ${req.params.id}.`);
-});
-
-app.delete('/pqrs/:id', (req, res) => {
-  res.send(`Simulación: se eliminó la PQRS con id ${req.params.id}.`);
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });

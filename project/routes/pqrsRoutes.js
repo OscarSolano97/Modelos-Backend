@@ -1,18 +1,18 @@
-import express from 'express';
+import { Router } from "express";
 import {
-  createPqrs,
-  getAllPqrs,
-  getPqrsById,
-  updatePqrs,
-  deletePqrs,
-} from '../controllers/pqrsController.js';
+    obtenerTodas,
+    obtenerPorId,
+    crear,
+    actualizar,
+    eliminar
+} from "../controllers/pqrsController.js";
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', getAllPqrs);
-router.get('/:id', getPqrsById);
-router.post('/', createPqrs);
-router.put('/:id', updatePqrs);
-router.delete('/:id', deletePqrs);
+router.get("/", obtenerTodas);
+router.get("/:id", obtenerPorId);
+router.post("/", crear);
+router.put("/:id", actualizar);
+router.delete("/:id", eliminar);
 
 export default router;
