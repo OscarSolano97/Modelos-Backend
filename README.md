@@ -1,16 +1,18 @@
-Actividad 2
-
-Responde brevemente:
-
 • ¿Qué componente se encarga de recibir la petición HTTP y dirigirla al controlador?
 
-En Node.js, el componente encargado de recibir la petición HTTP y dirigirla al controlador es el enrutador (o router).
-El Enrutador: Analiza la URL y el método de la petición (GET, POST, etc.) y la delega a la función o controlador específico encargado de procesarla y generar la respuesta.
+El componente encargado de recibir la petición HTTP y dirigirla al controlador es el Router (enrutador).
+Este se encarga de analizar la URL y el método HTTP (GET, POST, PUT, DELETE) y enviar la petición al controlador correspondiente.
 
 • ¿Qué componente se encarga de comunicarse con la base de datos?
 
-El modelo es el componente que se comunica con la base de datos, usando SQL y consultas para obtener o guardar información.
+El componente encargado de comunicarse con la base de datos es el Modelo.
+Su función es gestionar los datos de la aplicación, realizando operaciones como crear, consultar, actualizar o eliminar información.
 
 • ¿Qué componente envía finalmente la respuesta HTTP al cliente?
 
-El controlador es el componente que recibe la lógica de la petición y envía la respuesta HTTP al cliente mediante res.json(), res.send() o res.status().json().
+El componente que envía la respuesta HTTP al cliente es el Controlador.
+Este recibe la petición desde el router, procesa la información (con ayuda del modelo) y responde al cliente utilizando métodos como res.json() o res.status().json().
+
+
+
+npm install para recrear el proyecto
